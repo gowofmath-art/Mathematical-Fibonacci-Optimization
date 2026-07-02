@@ -27,7 +27,9 @@ Exploring Algorithmic Complexity: Optimizing Fibonacci Sequence to O(log n) via 
 
 費氏數列的遞迴定義為 $F_{n+2} = F_{n+1} + F_{n}$。我們將其轉化為線性變換矩陣形式：
 
-$$\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix}$$
+$$
+\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix}
+$$
 
 透過數學歸納法，問題的核心轉化為求轉換矩陣 $M$ 的 $n$ 次方：
 
