@@ -1,17 +1,17 @@
 # Mathematical-Fibonacci-Optimization
 Exploring Algorithmic Complexity: Optimizing Fibonacci Sequence to O(log n) via Matrix Diagonalization and Fast Doubling
 
-# 📐 Mathematical Fibonacci Optimization: From $O(2^n)$ to $O(\log n)$
+# Mathematical Fibonacci Optimization: From $O(2^n)$ to $O(\log n)$
 
 > **"Theory is essential. True optimization happens when mathematical truths are translated into low-level engineering mastery."**
 
-本專案從**第一性原理 (First Principles)** 出發，以嚴謹的數學語言剖析演算法效能。專案以**費氏數列 (Fibonacci Sequence)** 為核心研究對象，探討如何透過線性代數中的**矩陣對角化 (Diagonalization)** 與**快速冪 (Binary Exponentiation)** 技術，將計算的時間複雜度從指數級的 $\mathcal{O}(2^n)$ 降至對數級的 $\mathcal{O}(\log n)$。
+本專案從**數學精神**、**第一性原理 (First Principles)** 出發，以嚴謹的數學語言剖析演算法效能。專案以**費氏數列 (Fibonacci Sequence)** 為核心研究對象，探討各種不同的方法，最後討論如何透過線性代數中的**矩陣對角化 (Diagonalization)** 與**快速冪 (Binary Exponentiation)** 技術，將計算的時間複雜度從指數級的 $\mathcal{O}(2^n)$ 降至對數級的 $\mathcal{O}(\log n)$。
 
 ---
 
-## 📊 五大演算法實作與複雜度分析 (Algorithmic Approaches)
+## 五大演算法實作與複雜度分析 (Algorithmic Approaches)
 
-專案內含完整 Python 實作（詳見 `fibonacci_optimization.ipynb`），涵蓋以下五種思維層次：
+專案內含完整 Python 實作（詳見 `Fibonacci_optimization.ipynb`），涵蓋以下五種思維層次：就是不同的數學方法！
 
 | 方法 (Approach) | 時間複雜度 (Time) | 空間複雜度 (Space) | 實務評估 (Practical Review) |
 | :--- | :---: | :---: | :--- |
@@ -23,7 +23,7 @@ Exploring Algorithmic Complexity: Optimizing Fibonacci Sequence to O(log n) via 
 
 ---
 
-## 🧠 核心數學推導：為什麼是 $\mathcal{O}(\log n)$？
+## 核心數學推導：為什麼是 $\mathcal{O}(\log n)$？
 
 費氏數列的遞迴定義為 $F_{n+2} = F_{n+1} + F_{n}$。我們將其轉化為線性變換矩陣形式：
 
@@ -33,7 +33,7 @@ $$\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 
 
 $$\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = M^n \begin{pmatrix} F_{1} \\ F_{0} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^n \begin{pmatrix} 1 \\ 0 \end{pmatrix}$$
 
-### ⚙️ 轉換矩陣之對角化 (Diagonalization)
+### 轉換矩陣之對角化 (Diagonalization)
 為了求得 $M^n$ 的一般項，我們求解特徵方程式：
 
 $$\det(M - \lambda I) = \det\begin{pmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{pmatrix} = \lambda^2 - \lambda - 1 = 0$$
@@ -45,12 +45,12 @@ $$\lambda_1 = \phi = \frac{1+\sqrt{5}}{2}, \quad \lambda_2 = \psi = \frac{1-\sqr
 
 $$F_n = \frac{1}{\sqrt{5}} \left[ \left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\frac{1-\sqrt{5}}{2}\right)^n \right]$$
 
-### ⚡ 快速冪的工程實踐
+### 快速冪的工程實踐
 在實務工程中，利用**二進位拆解**（如當 $n$ 為偶數時 $A^n = A^{n/2} \cdot A^{n/2}$），我們不需要做 $n$ 次乘法，只需 $\log_2 n$ 次矩陣乘法，成功達到 $\mathcal{O}(\log n)$。
 
 ---
 
-## 🚀 效能實測效能 (Performance Benchmark)
+## 效能實測效能 (Performance Benchmark)
 
 當測試巨大的第 20,000 項費氏數列時（結果高達數千位數），各演算法之運算耗時對比：
 
@@ -59,4 +59,12 @@ $$F_n = \frac{1}{\sqrt{5}} \left[ \left(\frac{1+\sqrt{5}}{2}\right)^n - \left(\f
 2. 矩陣快速冪 (NumPy)      -> 運算時間: 0.001215 秒
 3. 矩陣快速冪 (純手寫)     -> 運算時間: 0.001076 秒
 4. Fast Doubling (最速)   -> 運算時間: 0.000422 秒
-*(註：遞迴法 F(50) 即需花費 3689 秒，在此不列入大數測試)*
+*(註：遞迴法光是 F(50) 即需花費 3689 秒，在此不列入大數測試，很明顯一定會過慢)*
+
+
+## 反思：數學精神—理論的很重要與程式的實踐
+我以數學系出身，較為擅長理論推導，這些不同的做法在我眼中都具備美感，我甚至覺得公式解最棒。
+然而實作上必須考慮時間複雜度、精確度等問題(程式中沒有無理數的概念)，因此如何選擇相應的演算法來解決問題將是關鍵！
+本作品也將以實際測試，測試程式跑的速度。
+
+
