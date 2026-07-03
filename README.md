@@ -43,22 +43,39 @@ F_{n-1}
 $$
 
 
-$$
-\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix}
-$$
-
 
 透過數學歸納法，問題的核心轉化為求轉換矩陣 $M$ 的 $n$ 次方：
 
 $$
-\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = M^n \begin{pmatrix} F_{1} \\ F_{0} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix}^n \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+\begin{pmatrix} 
+F_{n+1} \\ 
+F_{n} 
+\end{pmatrix} = 
+M^n 
+\begin{pmatrix} 
+F_{1} \\ 
+F_{0} 
+\end{pmatrix} = 
+\begin{pmatrix} 
+1 & 1 \\ 
+1 & 0 
+\end{pmatrix}^n 
+\begin{pmatrix} 
+1 \\ 
+0 
+\end{pmatrix}
 $$
+
 
 ### 轉換矩陣之對角化 (Diagonalization)
 為了求得 $M^n$ 的一般項，我們求解特徵方程式：
 
 $$
-\det(M - \lambda I) = \det\begin{pmatrix} 1-\lambda & 1 \\ 1 & -\lambda \end{pmatrix} = \lambda^2 - \lambda - 1 = 0
+\det(M - \lambda I) =
+\det\begin{pmatrix} 1-\lambda & 1 \\
+1 & -\lambda 
+\end{pmatrix} =
+\lambda^2 - \lambda - 1 = 0
 $$
 
 
