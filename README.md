@@ -27,8 +27,20 @@ Exploring Algorithmic Complexity: Optimizing Fibonacci Sequence to O(log n) via 
 
 費氏數列的遞迴定義為 $F_{n+2} = F_{n+1} + F_{n}$。我們將其轉化為線性變換矩陣形式：
 
-```math
-\(\begin{pmatrix} F_{n+1} \\ F_{n} \end{pmatrix} = \begin{pmatrix} 1 & 1 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} F_{n} \\ F_{n-1} \end{pmatrix} \%\%\)MAGIT_PARSER_PROTECT%%```
+$$
+\begin{pmatrix} 
+F_{n+1} \\ 
+F_{n} 
+\end{pmatrix} = 
+\begin{pmatrix} 
+1 & 1 \\ 
+1 & 0 
+\end{pmatrix} 
+\begin{pmatrix} 
+F_{n} \\ 
+F_{n-1} 
+\end{pmatrix}
+$$
 
 
 $$
